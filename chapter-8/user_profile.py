@@ -7,7 +7,7 @@ def build_profile(first, last, **user_info):
     return user_info
 
 
-profile = build_profile('Cody', 'Weller', Age='26', Location='WI', Job='Programmer')
+profile = build_profile('Cody', 'Wells', Age='26', Location='WI', Job='Programmer')
 
 print("Here is your profile:\n")
 
