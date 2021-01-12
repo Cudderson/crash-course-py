@@ -1,5 +1,5 @@
-# 9-3
-# describing a person using Class
+# 9-3, describing a person using Class
+# 9-7, creating subclass 'Admin' for class 'User'
 
 class User:
     """basic blueprint for a person"""
@@ -30,6 +30,20 @@ class User:
         self.login_attempts = 0
 
 
+class Admin(User):
+    """child class of 'User', specifically for admins"""
+
+    def __init__(self, first_name, last_name, age, eye_color):
+        super().__init__(first_name, last_name, age, eye_color)
+        self.privileges = ["can ban users", "can view logistics", "can push new code"]
+
+    def show_privileges(self):
+        print(f"These are the special privilege of Admin: {self.first_name} {self.last_name}")
+        for privilege in self.privileges:
+            print(f"\t- {privilege}")
+        print("\n")
+
+
 # instances of User class
 user1 = User("John", "Williams", 29, "blue")
 user2 = User("Henry", "Bittersweet", 44, "brown")
@@ -57,4 +71,12 @@ print(f"Login attempts for {user2.first_name} {user2.last_name} is {user2.login_
 
 # Reset login attempts to 0
 user3.reset_login_attempts()
-print(f"Login attempts for {user3.first_name} is now {user3.login_attempts}")
+print(f"Login attempts for {user3.first_name} is now {user3.login_attempts}\n")
+
+# create instance of 'Admin' child class and call its method
+main_admin = Admin("Viktor", "Krum", 35, "brown")
+main_admin.show_privileges()
+
+# appending string to instance attribute list 'privileges'
+main_admin.privileges.append("be the boss")
+main_admin.show_privileges()
