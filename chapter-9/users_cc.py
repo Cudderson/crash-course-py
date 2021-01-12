@@ -35,13 +35,19 @@ class Admin(User):
 
     def __init__(self, first_name, last_name, age, eye_color):
         super().__init__(first_name, last_name, age, eye_color)
-        self.privileges = ["can ban users", "can view logistics", "can push new code"]
+        # attribute as an instance of class Privileges
+        self.privileges = Privileges()
+
+
+class Privileges:
+    """Describes privileges of a user"""
+    def __init__(self):
+        self.privileges_list = ["can ban users", "can view logistics", "can push new code"]
 
     def show_privileges(self):
-        print(f"These are the special privilege of Admin: {self.first_name} {self.last_name}")
-        for privilege in self.privileges:
+        print(f"\nThese are the special privilege of Admin:")
+        for privilege in self.privileges_list:
             print(f"\t- {privilege}")
-        print("\n")
 
 
 # instances of User class
@@ -73,10 +79,10 @@ print(f"Login attempts for {user2.first_name} {user2.last_name} is {user2.login_
 user3.reset_login_attempts()
 print(f"Login attempts for {user3.first_name} is now {user3.login_attempts}\n")
 
-# create instance of 'Admin' child class and call its method
+# create instance of 'Admin' child class,
 main_admin = Admin("Viktor", "Krum", 35, "brown")
-main_admin.show_privileges()
+main_admin.privileges.show_privileges()
 
-# appending string to instance attribute list 'privileges'
-main_admin.privileges.append("be the boss")
-main_admin.show_privileges()
+# appending string to instance attribute list 'privileges_list' in class 'Privileges' for 'main_admin'
+main_admin.privileges.privileges_list.append("be the boss")
+main_admin.privileges.show_privileges()
