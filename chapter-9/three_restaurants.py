@@ -1,4 +1,5 @@
 # 9-1, 9-2, 9-4
+# 9-6 introducing a child class
 # Class practice
 
 
@@ -28,6 +29,18 @@ class Restaurant:
         self.number_served += number_served
 
 
+class IceCreamStand(Restaurant):
+    """subclass represents aspects of Restaurant, specific to an ice cream stand"""
+    def __init__(self, r_name, cuisine_type):
+        super().__init__(r_name, cuisine_type)
+        self.flavors = []
+
+    def flavors_available(self):
+        print(f"Here are the ice cream flavors we have available:")
+        for flavor in self.flavors:
+            print(f"\t - {flavor}")
+
+
 # instance of Restaurant
 restaurant = Restaurant("Jonny Salsa", "mexican")
 
@@ -44,3 +57,11 @@ print(f"They have now served {restaurant.number_served} people!\n")
 # Adding to cumulative attribute value via class method
 restaurant.increment_number_served(72)
 print(f"After closing today, {restaurant.r_name} has now served {restaurant.number_served} people!!!\n")
+
+# creating instance of subclass 'IceCreamStand'
+my_stand = IceCreamStand("Daily Cones", "ice cream")
+# defining 'self.flavors' for instance 'my_stand' and calling method
+my_stand.flavors = ["chocolate", "vanilla", "strawberry swirl"]
+my_stand.flavors_available()
+# Calling method from parent class, opens the restaurant
+my_stand.open_restaurant()
