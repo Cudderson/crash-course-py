@@ -19,7 +19,6 @@ class User:
 
     def greet_user(self):
         print(f"Hello, {self.first_name} {self.last_name}!")
-        print("\n")
 
     def increment_login_attempts(self):
         print(f"{self.first_name} {self.last_name} attempted to login.")
@@ -45,6 +44,6 @@ class Privileges:
         self.privileges_list = ["can ban users", "can view logistics", "can push new code"]
 
     def show_privileges(self):
-        print(f"\nThese are the special privilege of Admin:")
+        print(f"\nThese are the special privileges of Admin:")
         for privilege in self.privileges_list:
             print(f"\t- {privilege}")
