@@ -1,3 +1,6 @@
 *.idea
 __pycache__
+/ll_env/
+*.sqlite3
+/settings.py
 /chapter-17/python_repos_visual.html
